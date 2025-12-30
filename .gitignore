@@ -1,0 +1,15 @@
+# Environement Variables
+.env
+
+# Compiled files
+/bin
+*.exe
+*.exe~
+
+# IDE files
+.idea/
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db

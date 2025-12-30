@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # 1. Database (PostgreSQL)
+  db:
+    image: postgres:15-alpine
+    container_name: flashsale_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: flashsale
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - flashsale_net
+
+  # 2. Message Queue (RabbitMQ)
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: flashsale_rabbitmq
+    ports:
+      - "5672:5672"   # App communication port
+      - "15672:15672" # Management UI dashboard port
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - flashsale_net
+
+  # 3. Cache (Redis)
+  redis:
+    image: redis:7-alpine
+    container_name: flashsale_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - flashsale_net
+
+# Persist data even if containers are removed
+volumes:
+  pg_data:
+  rabbitmq_data:
+  redis_data:
+
+networks:
+  flashsale_net:
+    driver: bridge
