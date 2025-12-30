@@ -38,7 +38,7 @@ Traditional synchronous APIs fail under heavy load because the database becomes 
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/aliemreipek/go-flash-sale.git](https://github.com/aliemreipek/go-flash-sale.git)
+git clone https://github.com/aliemreipek/go-flash-sale.git
 cd go-flash-sale
 ```
 
