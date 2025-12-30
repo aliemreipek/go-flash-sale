@@ -1,0 +1,36 @@
+name: Go Build Pipeline
+
+# Trigger the workflow on push or pull request to the main branch
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the code from the repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Setup Go environment
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      # 3. Download dependencies
+      - name: Download Dependencies
+        run: go mod download
+
+      # 4. Build the application (Check for syntax errors)
+      - name: Build Application
+        run: go build -v ./cmd/api/main.go
+
+      # 5. Run Tests (Placeholder for future)
+      - name: Run Tests
+        run: go test -v ./...
