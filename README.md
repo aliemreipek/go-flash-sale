@@ -1,5 +1,7 @@
 # Go Flash Sale System ⚡
 
+![Build Status](https://github.com/aliemreipek/go-flash-sale/actions/workflows/ci.yml/badge.svg)
+
 A high-performance, asynchronous e-commerce backend designed to handle **High Concurrency** scenarios (e.g., Flash Sales, Black Friday). This project solves the **Race Condition** problem by utilizing **RabbitMQ** for message queuing and **PostgreSQL** transactions for data integrity.
 
 ![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go)
