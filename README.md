@@ -120,3 +120,5 @@ You can monitor the message flow via the RabbitMQ Management Dashboard:
 
 ## 📝 License
 This project is licensed under the MIT License.
+
+*Developed by [Ali Emre Ipek](https://github.com/aliemreipek)*
